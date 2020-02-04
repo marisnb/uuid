@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UUID</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+<body>
+<div class="panel container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand text-white px-5 py-4" href="#">UUID <span class="text-danger">GEN</span> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/marisnb/uuid" target="_blank"><img src="img/GitHub.png" alt="no image"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container-fluid">
+        <div class="container">
+            <div class="jumbotron bg-transparent text-white text-center">
+                <h1>Online universally unique identifier Generator</h1>
+                <h1 class="text-danger">{ UUID }</h1>
+                <p class="text-muted">Simple, fast generation of RFC4122 UUIDs.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid">
+        <div class="container justify-content-center">
+            <div class="row no-gutters">
+                <div class="card col-lg-5 col-md-12 col-sm-12 col-12 col-xl-5 p-2 p-sm-2 p-md-2 p-lg-0 p-xl-0 card-bg text-center">
+                    <div class="text-white py-4 px-5">
+                        <h6 class="py-2 text-monospace">Version 4 UUID</h6>
+                        <input type="text" readonly class="p-2 mb-3 text-center border border-secondary border-r w-100 text-white" id="uuid4">
+                        <div>
+                            <button type="button" onclick="copy('uuid4')" class="btn btn-sm btn-outline-danger" ><span class="btn-span-m">Copy</span></button>
+                            <span class="px-2"></span>
+                            <button type="button" onclick="uuid4()"  class="btn btn-sm btn-outline-primary"><span class="btn-span-m">Refresh</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2 p-2 p-sm-2 p-md-2 p-lg-0 p-xl-0">
+                </div>
+                <div class="card col-lg-5 col-md-12 col-sm-12 col-12 col-xl-5 card-bg text-center p-2 p-sm-2 p-md-2 p-lg-0 p-xl-0">
+                    <div class="text-white py-4 px-5">
+                        <h6 class="py-2 text-monospace">Version 1 UUID</h6>
+                        <input type="text" readonly class="p-2 mb-3 text-center border border-secondary border-r w-100 text-white" id="uuid1"/>
+                        <div>
+                            <button type="button" onclick="copy('uuid1')" class="btn btn-sm btn-outline-danger" ><span class="btn-span-m">Copy</span></button>
+                            <span class="px-2"></span>
+                            <button type="button" onclick="uuid1()" class="btn btn-sm btn-outline-primary"><span class="btn-span-m">Refresh</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<div id="particles-js"></div>
+
+<script rel="script" src="js/uuid.js"></script>
+<script rel="script" src="js/particles.min.js"></script>
+<script rel="script" src="js/app.js"></script>
+<script>
+    function uuid4() {
+        document.getElementById("uuid4").value = uuid.v4();
+    }
+    function uuid1() {
+        document.getElementById("uuid1").value = uuid.v1();
+    }
+    function copy(id) {
+        const copyText = document.getElementById(id);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+    }
+    uuid4();
+    uuid1();
+</script>
+</body>
+</html>
